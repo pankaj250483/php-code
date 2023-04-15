@@ -6,21 +6,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
     $search=$_POST["search"];
     
-    $sql="SELECT * from `students` where `name` LIKE '%$search%' OR `fathername` LIKE '%$search%' OR `mothername` LIKE '%$search%'";
+    $sql="SELECT * from `computers` where `name` LIKE '%$search%'";
 
     $result=$conn->query($sql);
     
     echo "<table class='table table-striped'>".
-         "<tr><th>rollno</th><th>Name</th><th>fathername</th><th>mothername</th><th></th></tr>";
+         "<tr><th>id</th><th>Name</th><th>english</th><th>math</th><th>hindi</th><th>science</th><th>punjabi</th><th>gk</th></tr>";
     
     while($row = $result->fetch_assoc()) 
     {
         echo "<tr>".
-             "<td>".$row['rollno']."</td>".
+             "<td>".$row['id']."</td>".
              "<td>".$row['name']."</td>".
-             "<td>".$row['fathername']."</td>".
-             "<td>".$row['mothername']."</td>".
-             "<td> <a href='edit.php? rollno=".$row['rollno']."'>Edit Reccord</a></td>".
+             "<td>".$row['english']."</td>".
+             "<td>".$row['math']."</td>".
+             "<td>".$row['hindi']."</td>".
+             "<td>".$row['science']."</td>".
+             "<td>".$row['punjabi']."</td>".
+             "<td>".$row['gk']."</td>".
+             "<td> <a href='edit.php? id=".$row['id']."'>Edit Reccord</a></td>".
              "</tr>";
     }
         echo "</table>";
@@ -36,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 <body>
 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" class="m-auto w-25">
-<input type=text class="form-control my-3" name=search value="" placeholder="enter name or fathername or mothername for search">
+<input type=text class="form-control my-3" name=search value="" placeholder="enter name for search">
 <div>
 <?php echo $message; ?>
 </div>

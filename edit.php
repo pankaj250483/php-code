@@ -4,12 +4,16 @@ require "connect.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
-    $rollno=$_POST["rollno"];
-    $name=$_POST["name"];
-    $fathername=$_POST["fathername"];
-    $mothername=$_POST["mothername"];
+  $id=$_POST["id"];
+  $name=$_POST["name"];
+  $english=$_POST["english"];
+  $math=$_POST["math"];
+  $hindi=$_POST["hindi"];
+  $science=$_POST["science"];
+  $punjabi=$_POST["punjabi"];
+  $gk=$_POST["gk"];
     
-    $sql="UPDATE `students` SET `name`='$name',`fathername`='$fathername',`mothername`='$mothername' WHERE `rollno`='$rollno';";
+    $sql="UPDATE `computers` SET `name`='$name',`english`='$english',`math`='$math',`hindi`='$hindi',`science`='$science',`punjabi`='$punjabi',`gk`='$gk' WHERE `id`='$id;";
     
     if ($conn->query($sql) === TRUE) {
         $message="<div class='alert alert-success'>Record Updated successfully.</div>";
@@ -17,14 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       {
         $message="<div class='alert alert-danger'>Error: <br>" . $conn->error."</div>";
       }
-      $sr=$rollno;
+      $sr=$id;
 }
 else
 {
-$sr=intval($_GET["rollno"]);
+$sr=intval($_GET["id"]);
 }
 
-$sql="SELECT * from `students` where `rollno`='$sr';";
+$sql="SELECT * from `computers` where `id`='$sr';";
 $result=$conn->query($sql);
 $row = $result->fetch_assoc();
 
@@ -39,14 +43,22 @@ $conn->close();
 <body>
 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" class="m-auto w-25">
-<label>rollno</label>
-<input type=text class="form-control my-3" name=rollno value="<?php echo $row['rollno']; ?>" placeholder="enter name here" readonly>
+<label>id</label>
+<input type=text class="form-control my-3" name=id value="<?php echo $row['id']; ?>" placeholder="enter id here" readonly>
 <label>Name : </label>
 <input type=text class="form-control my-3" name=name value="<?php echo $row['name']; ?>" placeholder="enter name here">
-<label>fathername</label>
-<input type=text class="form-control my-3" name=fathername value="<?php echo $row['fathername']; ?>" placeholder="enter city here">
-<label>mothername</label>
-<input type=text class="form-control my-3" name=mothername value="<?php echo $row['mothername']; ?>" placeholder="enter mobile here">
+<label>english</label>
+<input type=text class="form-control my-3" name=english value="<?php echo $row['english']; ?>" placeholder="enter english here">
+<label>math</label>
+<input type=text class="form-control my-3" name=math value="<?php echo $row['math']; ?>" placeholder="enter math here">
+<label>hindi</label>
+<input type=text class="form-control my-3" name=hindi value="<?php echo $row['hindi']; ?>" placeholder="enter hindi here">
+<label>science</label>
+<input type=text class="form-control my-3" name=science value="<?php echo $row['science']; ?>" placeholder="enter science here">
+<label>punjabi</label>
+<input type=text class="form-control my-3" name=punjabi value="<?php echo $row['punjabi']; ?>" placeholder="enter punjabi here">
+<label>gk</label>
+<input type=text class="form-control my-3" name=gk value="<?php echo $row['gk']; ?>" placeholder="enter gk here">
 <div>
 <?php echo $message; ?>
 </div>

@@ -4,13 +4,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
     require "connect.php";
 
-    $rollno=$_POST["rollno"];
+    $id=$_POST["id"];
     $name=$_POST["name"];
-    $fathername=$_POST["fathername"];
-    $mothername=$_POST["mothername"];
+    $english=$_POST["english"];
+    $math=$_POST["math"];
+    $hindi=$_POST["hindi"];
+    $science=$_POST["science"];
+    $punjabi=$_POST["punjabi"];
+    $gk=$_POST["gk"];
     // var_dump($name,$city,$mobile);
     
-    $sql="INSERT INTO `students` ( `rollno`,`name`,`fathername`,`mothername`) VALUES ('$rollno','$name','$fathername','$mothername')";
+    $sql="INSERT INTO `computers` ( `id`,`name`,`english`,`math`,`hindi`,`science`,`punjabi`,`gk`) VALUES ('$id','$name','$english','$math','$hindi','$science','$punjabi','$gk')";
     
     if ($conn->query($sql) === TRUE) {
         $last_id = $conn->insert_id;
@@ -33,10 +37,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 <body>
 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" class="m-auto w-25">
-<input type=text class="form-control my-3" name=rollno value="" placeholder="enter rollno here">
+<input type=text class="form-control my-3" name=id value="" placeholder="enter id here">
 <input type=text class="form-control my-3" name=name value="" placeholder="enter name here">
-<input type=text class="form-control my-3" name=fathername value="" placeholder="enter fathername here">
-<input type=text class="form-control my-3" name=mothername value="" placeholder="enter mothername here">
+<input type=text class="form-control my-3" name=english value="" placeholder="enter english here">
+<input type=text class="form-control my-3" name=math value="" placeholder="enter math here">
+<input type=text class="form-control my-3" name=hindi value="" placeholder="enter hindi  here">
+<input type=text class="form-control my-3" name=science value="" placeholder="enter science here">
+<input type=text class="form-control my-3" name=punjabi value="" placeholder="enter punjabi here">
+<input type=text class="form-control my-3" name=gk value="" placeholder="enter gk here">
 <div>
 <?php echo $message; ?>
 </div>
