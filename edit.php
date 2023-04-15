@@ -4,12 +4,12 @@ require "connect.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
-    $scholarID=$_POST["scholarID"];
+    $rollno=$_POST["rollno"];
     $name=$_POST["name"];
-    $city=$_POST["city"];
-    $mobile=$_POST["mobile"];
+    $fathername=$_POST["fathername"];
+    $mothername=$_POST["mothername"];
     
-    $sql="UPDATE `personal` SET `name`='$name',`city`='$city',`mobile`='$mobile' WHERE `scholarID`='$scholarID';";
+    $sql="UPDATE `students` SET `name`='$name',`fathername`='$fathername',`mothername`='$mothername' WHERE `rollno`='$rollno';";
     
     if ($conn->query($sql) === TRUE) {
         $message="<div class='alert alert-success'>Record Updated successfully.</div>";
@@ -17,14 +17,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       {
         $message="<div class='alert alert-danger'>Error: <br>" . $conn->error."</div>";
       }
-      $sr=$scholarID;
+      $sr=$rollno;
 }
 else
 {
-$sr=intval($_GET["sch_id"]);
+$sr=intval($_GET["rollno"]);
 }
 
-$sql="SELECT * from `personal` where `scholarID`='$sr';";
+$sql="SELECT * from `students` where `rollno`='$sr';";
 $result=$conn->query($sql);
 $row = $result->fetch_assoc();
 
@@ -39,14 +39,14 @@ $conn->close();
 <body>
 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" class="m-auto w-25">
-<label>Schholar ID</label>
-<input type=text class="form-control my-3" name=scholarID value="<?php echo $row['scholarID']; ?>" placeholder="enter name here" readonly>
+<label>rollno</label>
+<input type=text class="form-control my-3" name=rollno value="<?php echo $row['rollno']; ?>" placeholder="enter name here" readonly>
 <label>Name : </label>
 <input type=text class="form-control my-3" name=name value="<?php echo $row['name']; ?>" placeholder="enter name here">
-<label>City</label>
-<input type=text class="form-control my-3" name=city value="<?php echo $row['city']; ?>" placeholder="enter city here">
-<label>Mobile</label>
-<input type=text class="form-control my-3" name=mobile value="<?php echo $row['mobile']; ?>" placeholder="enter mobile here">
+<label>fathername</label>
+<input type=text class="form-control my-3" name=fathername value="<?php echo $row['fathername']; ?>" placeholder="enter city here">
+<label>mothername</label>
+<input type=text class="form-control my-3" name=mothername value="<?php echo $row['mothername']; ?>" placeholder="enter mobile here">
 <div>
 <?php echo $message; ?>
 </div>

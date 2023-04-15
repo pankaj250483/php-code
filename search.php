@@ -6,21 +6,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
     $search=$_POST["search"];
     
-    $sql="SELECT * from `personal` where `name` LIKE '%$search%' OR `mobile` LIKE '%$search%' OR `city` LIKE '%$search%'";
+    $sql="SELECT * from `students` where `name` LIKE '%$search%' OR `fathername` LIKE '%$search%' OR `mothername` LIKE '%$search%'";
 
     $result=$conn->query($sql);
     
     echo "<table class='table table-striped'>".
-         "<tr><th>scholarID</th><th>Name</th><th>City</th><th>Mobile</th><th></th></tr>";
+         "<tr><th>rollno</th><th>Name</th><th>fathername</th><th>mothername</th><th></th></tr>";
     
     while($row = $result->fetch_assoc()) 
     {
         echo "<tr>".
-             "<td>".$row['scholarID']."</td>".
+             "<td>".$row['rollno']."</td>".
              "<td>".$row['name']."</td>".
-             "<td>".$row['city']."</td>".
-             "<td>".$row['mobile']."</td>".
-             "<td> <a href='edit.php?sch_id=".$row['scholarID']."'>Edit Reccord</a></td>".
+             "<td>".$row['fathername']."</td>".
+             "<td>".$row['mothername']."</td>".
+             "<td> <a href='edit.php? rollno=".$row['rollno']."'>Edit Reccord</a></td>".
              "</tr>";
     }
         echo "</table>";
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 <body>
 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" class="m-auto w-25">
-<input type=text class="form-control my-3" name=search value="" placeholder="enter name or mobile or city for search">
+<input type=text class="form-control my-3" name=search value="" placeholder="enter name or fathername or mothername for search">
 <div>
 <?php echo $message; ?>
 </div>

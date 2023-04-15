@@ -6,9 +6,10 @@
 <body>
 
 <form action="insert-save.php" method="post" class="m-auto w-25">
+<input type=text class="form-control my-3" name=rollno value="" placeholder="enter rollno here">
 <input type=text class="form-control my-3" name=name value="" placeholder="enter name here">
-<input type=text class="form-control my-3" name=city value="" placeholder="enter city here">
-<input type=text class="form-control my-3" name=mobile value="" placeholder="enter mobile here">
+<input type=text class="form-control my-3" name=fathername value="" placeholder="enter fathername here">
+<input type=text class="form-control my-3" name=mothername value="" placeholder="enter mothername here">
 <input type=submit value=submit class="my-4 btn btn-primary btn-lg">
 <a href="show.php" type=button class="my-4 btn btn-primary btn-lg">Show</a>
 </form>

@@ -4,12 +4,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
     require "connect.php";
 
+    $rollno=$_POST["rollno"];
     $name=$_POST["name"];
-    $city=$_POST["city"];
-    $mobile=$_POST["mobile"];
+    $fathername=$_POST["fathername"];
+    $mothername=$_POST["mothername"];
     // var_dump($name,$city,$mobile);
     
-    $sql="INSERT INTO `personal` (`name`,`city`,`mobile`) VALUES ('$name','$city','$mobile')";
+    $sql="INSERT INTO `students` ( `rollno`,`name`,`fathername`,`mothername`) VALUES ('$rollno','$name','$fathername','$mothername')";
     
     if ($conn->query($sql) === TRUE) {
         $last_id = $conn->insert_id;
@@ -32,9 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 <body>
 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" class="m-auto w-25">
+<input type=text class="form-control my-3" name=rollno value="" placeholder="enter rollno here">
 <input type=text class="form-control my-3" name=name value="" placeholder="enter name here">
-<input type=text class="form-control my-3" name=city value="" placeholder="enter city here">
-<input type=text class="form-control my-3" name=mobile value="" placeholder="enter mobile here">
+<input type=text class="form-control my-3" name=fathername value="" placeholder="enter fathername here">
+<input type=text class="form-control my-3" name=mothername value="" placeholder="enter mothername here">
 <div>
 <?php echo $message; ?>
 </div>
