@@ -1,8 +1,9 @@
 <?php
-$myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
-$txt = "John Doe\n";
+$myfile = fopen("pcs.txt", "a") or die("Unable to open file!");
+$txt = "Dheeraj\n";
 fwrite($myfile, $txt);
-$txt = "Jane Doe\n";
+$txt = "Rajasthant\n";
 fwrite($myfile, $txt);
 fclose($myfile);
+echo "work done. please check file.";
 ?>
