@@ -1,0 +1,114 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*
+{
+    box-sizing: border-box;
+}
+
+body
+{
+    background: lightgrey;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.nav-item
+{
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+
+/* .container {
+	display: flex;
+  justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+} */
+
+.chat {
+	height: 300px;
+	width: 250px;
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+	align-items: center;
+	background-color: lightblue !important;
+	padding: 2px;
+} 
+
+::-webkit-input-placeholder { 
+	color: .711 
+}
+ 
+input { 
+	border: 0; 
+	padding: 15px; 
+	margin-left: auto;
+	border-radius: 10px; 
+}
+
+.messages {
+	display: flex;
+	flex-direction: column;
+	overflow: scroll;
+	height: 90%;
+	width: 100%;
+	background-color: azure;
+	padding: 15px;
+	margin: 15px;
+	border-radius: 10px;
+}
+
+#bot {
+	margin-left: auto;
+}
+
+.bot {
+	font-family: Consolas, 'Courier New', Menlo, source-code-pro, Monaco,  
+	monospace;
+}
+
+.avatar {
+	height: 25px;
+}
+
+.response {
+	display: flex;
+	align-items: center;
+	margin: 1%;
+}
+
+span {
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.container1 {
+	
+  	justify-content: center;
+	align-items: center;
+	width: 270px !important;
+	min-height: 400px !important;
+	border: 2px solid grey !important;
+	background-color: black;
+	padding: 10px !important;
+	position: absolute;
+	right: 10px !important;
+	bottom: 10px !important;
+}
+
+
+/* Mobile */
+
+@media only screen and (max-width: 980px) {
+  .container1 {
+		flex-direction: column; 
+		justify-content: flex-start;
+	}
+	.chat {
+		width: 75vw;
+		margin: 10vw;
+	}
+}
