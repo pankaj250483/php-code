@@ -1,6 +1,6 @@
 <?php
 require "connect.php";
-
+require "auth.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {

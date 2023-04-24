@@ -6,7 +6,7 @@
 </head>
 <body>
 <?php
-
+require "auth.php";
 require "connect.php";
 
 $sql="SELECT * from `computers`";
