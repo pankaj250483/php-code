@@ -4,6 +4,6 @@ unset($_SESSION['id']);
 unset($_SESSION['fullname']);
 unset($_SESSION["loggedin"]);
 session_destroy();
-    header("location: index.php");
+    header("location: login.php");
     exit;
 ?>
