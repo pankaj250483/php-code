@@ -3,6 +3,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
     require "connect.php";
+    require "auth.php";
 
     $search=$_POST["search"];
     

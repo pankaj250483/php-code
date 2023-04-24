@@ -3,6 +3,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
     require "connect.php";
+    require "auth.php";
 
     $id=$_POST["id"];
     $name=$_POST["name"];
