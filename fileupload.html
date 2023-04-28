@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action="upload.php" method="post" enctype="multipart/form-data">
+  Select image to upload:
+  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="submit" value="Upload Image" name="submit">
+</form>
+
+<img src="" id="imagenFondo" alt="Uploaded Image preview will be show here"style="min-width:250px;min-height: 300px;width:250px;height: 300px;border: 1px solid green;">
+
+<script>
+
+    // Get a reference to the file input
+    const imageElement = document.querySelector('#imagenFondo');
+
+    // Get a reference to the file input
+    const fileInput = document.querySelector('#fileToUpload');
+
+    // Listen for the change event so we can capture the file
+    fileInput.addEventListener('change', (e) => {
+        // Get a reference to the file
+        const file = e.target.files[0];
+
+        // Set file as image source
+        imageElement.src = URL.createObjectURL(file);
+    });
+
+
+    
+</script>
+
+</body>
+</html>
