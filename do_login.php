@@ -1,6 +1,6 @@
 <?php
 // Initialize the session
-     require "auth.php";
+     
      require "connect.php";
      $username=$_POST['user'];
      $password=$_POST['password'];
