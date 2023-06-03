@@ -1,11 +1,13 @@
 <?php
 
+require "auth.php";
+  require "connect.php";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
   
  
-  require "auth.php";
-  require "connect.php";
+  
 
     $id=$_POST["id"];
     $name=$_POST["name"];
