@@ -25,12 +25,10 @@ class students{
   }
 
   function get_name() {
-    return $this->name;
+    return "Name : ".$this->name."<br>Roll No. : ". $this->rollno;
   }
 
 }
-
-echo "hello";
 
 $st[0] = new students("dheeraj",10,45,49,52);
 $st[0]->total();
