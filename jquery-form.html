@@ -6,6 +6,36 @@
 
 <script>
 $(document).ready(function(){
+
+    $("#loaddata").click(function(){
+        $.ajax
+          ({
+          type:'post',
+          url:'jquery-form-load.php',
+          data:{
+            },
+              success:function(response) 
+              {
+                
+                  x=JSON.parse(response);
+                  sname.value=x.st_name;
+                  age.value=x.st_age;
+
+                     var t_head=`<table border=1><tr><th>Student Name</th><th>Student Age</th></tr>`;
+                        var tmp="";
+                    for (i=0;i<x.length;i++)
+                    {
+                        tmp+=`<tr><td>${x[i].st_name}</td><td>${x[i].st_age}</td></tr>`;
+                    }
+                    res.innerHTML=t_head+tmp+`</table>`;
+
+              },
+                error: function(response) {
+                    res.innerHTML='Error occured'+JSON.stringify(response.responseText);
+                }
+          });
+    });
+
   $("#go").click(function(){
     var student=sname.value;
     var student_age=age.value;
@@ -51,6 +81,7 @@ $(document).ready(function(){
         <input type="number" id="age"><br><br>
         <div id="res"></div>
         <button id="go">Submit</button>
+        <button id="loaddata"> Load Data</button>
     </form>
 
 
