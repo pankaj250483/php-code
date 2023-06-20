@@ -1,0 +1,60 @@
+<html>
+<head>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("#go").click(function(){
+    var student=sname.value;
+    var student_age=age.value;
+    if( student=="" || student_age=="")
+    {
+        alert("Please fill the value in fields.");
+        return;
+    }
+    else
+    {
+        $.ajax
+          ({
+          type:'post',
+          url:'jquery-form.php',
+          data:{
+           st_name: student,
+           st_age: student_age
+            },
+              success:function(response) 
+              {
+                  res.innerHTML=response;
+              },
+                error: function(response) {
+                    res.innerHTML='Error occured'+JSON.stringify(response.responseText);
+                }
+          });
+
+    }
+  
+    alert("Name :"+sname.value+" age: "+age.value);
+  });
+});
+</script>
+
+</head>
+<body>
+
+
+    <form action="#">
+        <label>Enter Your Name</label>
+        <input type="text" name="name" id="sname"><br><br>
+        <label>Enter Your age</label>
+        <input type="number" id="age"><br><br>
+        <div id="res"></div>
+        <button id="go">Submit</button>
+    </form>
+
+
+</body>
+
+
+</html>
