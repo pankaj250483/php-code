@@ -7,6 +7,10 @@
 <script>
 $(document).ready(function(){
 
+  $("#t").click(function(){
+    $("p").toggle();
+  });
+
     $("#loaddata").click(function(){
         $.ajax
           ({
@@ -19,7 +23,7 @@ $(document).ready(function(){
                 
                   x=JSON.parse(response);
                   sname.value=x.st_name;
-                  age.value=x.st_age;
+                  age.value=x.st_age; 
 
                      var t_head=`<table border=1><tr><th>Student Name</th><th>Student Age</th></tr>`;
                         var tmp="";
@@ -79,11 +83,12 @@ $(document).ready(function(){
         <input type="text" name="name" id="sname"><br><br>
         <label>Enter Your age</label>
         <input type="number" id="age"><br><br>
-        <div id="res"></div>
+        <p id="res"></p>
         <button id="go">Submit</button>
         <button id="loaddata"> Load Data</button>
+        <button id="t">Toggle</button>
     </form>
-
+<p>dheeraj bishnoi </p>
 
 </body>
 
