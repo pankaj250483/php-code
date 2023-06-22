@@ -18,6 +18,9 @@ $(document).ready(function(){
           ({
           type:'post',
           url:'jquery-form.php',
+          data: {
+            st_id: sid.value
+          },
               success:function(response) 
               {
                   res.innerHTML=response;

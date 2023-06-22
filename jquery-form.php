@@ -1,6 +1,6 @@
 <?php
 
-echo ="run";
+echo "run".print_r($_POST);
 return;
   require "connect.php";
 
