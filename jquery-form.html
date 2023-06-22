@@ -11,35 +11,6 @@ $(document).ready(function(){
     $("p").toggle();
   });
 
-    $("#loaddata").click(function(){
-        $.ajax
-          ({
-          type:'post',
-          url:'jquery-form-load.php',
-          data:{
-            },
-              success:function(response) 
-              {
-                
-                  x=JSON.parse(response);
-                  sname.value=x.st_name;
-                  age.value=x.st_age; 
-
-                     var t_head=`<table border=1><tr><th>Student Name</th><th>Student Age</th></tr>`;
-                        var tmp="";
-                    for (i=0;i<x.length;i++)
-                    {
-                        tmp+=`<tr><td>${x[i].st_name}</td><td>${x[i].st_age}</td></tr>`;
-                    }
-                    res.innerHTML=t_head+tmp+`</table>`;
-
-              },
-                error: function(response) {
-                    res.innerHTML='Error occured'+JSON.stringify(response.responseText);
-                }
-          });
-    });
-
   $("#go").click(function(){
         
     xid=sid.value;
@@ -85,6 +56,7 @@ $(document).ready(function(){
           <input type=text class="form-control my-3" id=punjabi value="" placeholder=""><br><br>
           <label>Enter Your gk</label>
           <input type=text class="form-control my-3" id=gk value="" placeholder=""><br><br>
+
           <div>
           <?php echo $message; ?>
           </div>
