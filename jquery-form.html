@@ -19,8 +19,15 @@ $(document).ready(function(){
           type:'post',
           url:'jquery-form.php',
           data: {
-            st_id: sid.value
-          },
+            st_id: sid.value,
+            st_name: name.value,
+            st_english: english.value,
+            st_math: math.value,
+            st_hindi: hindi.value,
+            st_science: science.value,
+            st_punjabi: punjabi.value,
+            st_gk: gk.value
+            },
               success:function(response) 
               {
                   res.innerHTML=response;

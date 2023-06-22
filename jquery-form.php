@@ -1,7 +1,6 @@
 <?php
 
 echo "run".print_r($_POST);
-return;
   require "connect.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
