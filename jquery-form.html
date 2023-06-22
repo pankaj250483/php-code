@@ -41,23 +41,12 @@ $(document).ready(function(){
     });
 
   $("#go").click(function(){
-    var student=sname.value;
-    var student_age=age.value;
-    if( student=="" || student_age=="")
-    {
-        alert("Please fill the value in fields.");
-        return;
-    }
-    else
-    {
+        
+    xid=sid.value;
         $.ajax
           ({
           type:'post',
           url:'jquery-form.php',
-          data:{
-           st_name: student,
-           st_age: student_age
-            },
               success:function(response) 
               {
                   res.innerHTML=response;
@@ -67,10 +56,8 @@ $(document).ready(function(){
                 }
           });
 
-    }
-  
-    alert("Name :"+sname.value+" age: "+age.value);
-  });
+          alert("hello");
+      });
 });
 </script>
 
@@ -78,17 +65,35 @@ $(document).ready(function(){
 <body>
 
 
-    <form action="#">
-        <label>Enter Your Name</label>
-        <input type="text" name="name" id="sname"><br><br>
-        <label>Enter Your age</label>
-        <input type="number" id="age"><br><br>
-        <p id="res"></p>
-        <button id="go">Submit</button>
+    
+        
+
+        <form method="post" action="#">
+          <label>Enter Your id</label>
+          <input type=text class="form-control my-3" name="sid" value="" placeholder=""><br><br>
+          <label>Enter Your name</label>
+          <input type=text class="form-control my-3" name=name value="" placeholder=""><br><br>
+          <label>Enter Your english</label>
+          <input type=text class="form-control my-3" name=english value="" placeholder=""><br><br>
+          <label>Enter Your math</label>
+          <input type=text class="form-control my-3" name=math value="" placeholder=""><br><br>
+          <label>Enter Your hindi</label>
+          <input type=text class="form-control my-3" name=hindi value="" placeholder=""><br><br>
+          <label>Enter Your science</label>
+          <input type=text class="form-control my-3" name=science value="" placeholder=" "><br><br>
+          <label>Enter Your punjabi</label>
+          <input type=text class="form-control my-3" name=punjabi value="" placeholder=""><br><br>
+          <label>Enter Your gk</label>
+          <input type=text class="form-control my-3" name=gk value="" placeholder=""><br><br>
+          <div>
+          <?php echo $message; ?>
+          </div>
+          </form>
+          <button id="go">Submit</button>
         <button id="loaddata"> Load Data</button>
-        <button id="t">Toggle</button>
-    </form>
-<p>dheeraj bishnoi </p>
+
+
+          <p id="res">hello</p>  
 
 </body>
 
