@@ -39,7 +39,52 @@ $(document).ready(function(){
 
           alert("hello");
       });
-});
+
+      $("#search").click(function(){
+        
+        xid=sid.value;
+            $.ajax
+              ({
+              type:'post',
+              url:'jquery-search.php',
+              data: {
+                st_name: name.value
+                },
+                  success:function(response) 
+                  {
+                      res.innerHTML=response;
+                  },
+                    error: function(response) {
+                        res.innerHTML='Error occured'+JSON.stringify(response.responseText);
+                    }
+              });
+    
+              alert("hello");
+          });
+
+          $("#show").click(function(){
+        
+        xid=sid.value;
+            $.ajax
+              ({
+              type:'post',
+              url:'jquery-show .php',
+              data: {
+                st_name: name.value
+                },
+                  success:function(response) 
+                  {
+                      res.innerHTML=response;
+                  },
+                    error: function(response) {
+                        res.innerHTML='Error occured'+JSON.stringify(response.responseText);
+                    }
+              });
+    
+              alert("hello");
+          });
+    });
+
 </script>
 
 </head>
@@ -53,7 +98,7 @@ $(document).ready(function(){
           <label>Enter Your id</label>
           <input type=text class="form-control my-3" id="sid" value="" placeholder=""><br><br>
           <label>Enter Your name</label>
-          <input type=text class="form-control my-3" id=name value="" placeholder=""><br><br>
+          <input type=text class="form-control my-3" id=fname value="" placeholder=""><br><br>
           <label>Enter Your english</label>
           <input type=text class="form-control my-3" id=english value="" placeholder=""><br><br>
           <label>Enter Your math</label>
@@ -73,6 +118,9 @@ $(document).ready(function(){
           </form>
           <button id="go">Submit</button>
         <button id="loaddata"> Load Data</button>
+        <button id="search">search</button>
+        <button id="show">show</button>
+
 
 
           <p id="res">hello</p>  

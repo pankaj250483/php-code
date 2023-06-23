@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
  
   
 
-    $id=$_POST["st id"];
+    $id=$_POST["st_id"];
     $name=$_POST["st_name"];
     $english=$_POST["st_english"];
     $math=$_POST["st_math"];
