@@ -1,0 +1,63 @@
+<html>
+<body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script>
+    $(document).ready(function()
+    {
+                
+        $("#go").click (function(){
+          
+        $.ajax({
+        type:'post',
+        url:'jquery-form.php',
+        data: {
+          emp_id: eid.value,
+          emp_name: ename.value,
+          emp_dob: dob.value,
+          emp_salary: salary.value,
+          emp_mob: mobno.value
+          },
+          success: function(response)
+              {
+                  res.innerHTML=response;
+              },
+          error: function(result)
+              {
+                   res.innerHTML=error;
+                   
+               }
+      });
+
+    
+  });
+
+});
+    </script> 
+
+<form method="post" action="#">
+   <label> Enter ID</label>
+   <input type="number" id="eid" name="eid"><br><br>
+
+  <label for="ename">Employee Name:</label>
+  <input type="text" id="ename" name="Ename"><br><br>
+
+  <label for="dob">D0B:</label>
+  <input type="date" id="dob" name="edob"><br><br>
+  
+  <label for="salary"> Salary:</label>
+  <input type="number" id="salary" name="esalary"><br><br>
+
+  <label for="Mobile">Mobile No:</label>
+  <input type="number" id="mobno" name="mobileno"><br><br>
+
+</form>
+
+<button id="go">Submit </button>
+
+<div id="res">result</div>
+
+</body>
+</html>
+

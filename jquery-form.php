@@ -6,9 +6,6 @@ echo "run".print_r($_POST);
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
   
- 
-  
-
     $id=$_POST["st id"];
     $name=$_POST["st_name"];
     $english=$_POST["st_english"];
