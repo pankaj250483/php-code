@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 <input type=submit value=submit class="my-4 btn btn-primary btn-lg">
 <a href="show.php" type=button class="my-4 btn btn-primary btn-lg">Show</a>
 <a href="insert-phpself.php" type=button class="my-4 btn btn-primary btn-lg">Add New Record</a>
-</form>
+</form> 
 
 
 
