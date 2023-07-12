@@ -24,4 +24,21 @@ $objPHPExcel->setActiveSheetIndex(0);
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
 $objWriter->save('studentInformation.xlsx');
 echo "<a href='studentInformation.xlsx'>Download Excel File</a>";
+
+
+/*
+//cell value by LOOP
+$sql = "SELECT * FROM my_table";
+$result = mysql_query($sql);
+
+$row = 1; // 1-based index
+while($row_data = mysql_fetch_assoc($result)) {
+    $col = 0;
+    foreach($row_data as $key=>$value) {
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, $row, $value);
+        $col++;
+    }
+    $row++;
+}
+*/
 ?>
