@@ -6,7 +6,6 @@
 
 <script>
 $(document).ready(function(){
-
   $("#t").click(function(){
     $("p").toggle();
   });
@@ -18,6 +17,16 @@ $(document).ready(function(){
           ({
           type:'post',
           url:'jquery-form.php',
+          data: {
+            st_id: sid.value,
+            st_name: name.value,
+            st_english: english.value,
+            st_math: math.value,
+            st_hindi: hindi.value,
+            st_science: science.value,
+            st_punjabi: punjabi.value,
+            st_gk: gk.value
+            },
               success:function(response) 
               {
                   res.innerHTML=response;
@@ -29,39 +38,84 @@ $(document).ready(function(){
 
           alert("hello");
       });
-});
+
+      $("#search").click(function(){
+        
+        xid=sid.value;
+            $.ajax
+              ({
+              type:'post',
+              url:'jquery-search.php',
+              data: {
+                st_name: name.value
+                },
+                  success:function(response) 
+                  {
+                      res.innerHTML=response;
+                  },
+                    error: function(response) {
+                        res.innerHTML='Error occured'+JSON.stringify(response.responseText);
+                    }
+              });
+    
+              alert("hello");
+          });
+
+          $("#show").click(function(){
+        
+        xid=sid.value;
+            $.ajax
+              ({
+              type:'post',
+              url:'jquery-show .php',
+              data: {
+                st_name: name.value
+                },
+                  success:function(response) 
+                  {
+                      res.innerHTML=response;
+                  },
+                    error: function(response) {
+                        res.innerHTML='Error occured'+JSON.stringify(response.responseText);
+                    }
+              });
+    
+              alert("hello");
+          });
+    });
+
 </script>
 
 </head>
 <body>
 
-
-    
-        
-
         <form method="post" action="#">
           <label>Enter Your id</label>
           <input type=text class="form-control my-3" id="sid" value="" placeholder=""><br><br>
           <label>Enter Your name</label>
-          <input type=text class="form-control my-3" id="name" value="" placeholder=""><br><br>
+          <input type=text class="form-control my-3" id=fname value="" placeholder=""><br><br>
           <label>Enter Your english</label>
-          <input type=text class="form-control my-3" id="english" value="" placeholder=""><br><br>
+          <input type=text class="form-control my-3" id=english value="" placeholder=""><br><br>
           <label>Enter Your math</label>
-          <input type=text class="form-control my-3" id="math" value="" placeholder=""><br><br>
+          <input type=text class="form-control my-3" id=math value="" placeholder=""><br><br>
           <label>Enter Your hindi</label>
-          <input type=text class="form-control my-3" id="hindi" value="" placeholder=""><br><br>
+          <input type=text class="form-control my-3" id=hindi value="" placeholder=""><br><br>
           <label>Enter Your science</label>
-          <input type=text class="form-control my-3" id="science" value="" placeholder=" "><br><br>
+          <input type=text class="form-control my-3" id=science value="" placeholder=" "><br><br>
           <label>Enter Your punjabi</label>
-          <input type=text class="form-control my-3" id="punjabi" value="" placeholder=""><br><br>
+          <input type=text class="form-control my-3" id=punjabi value="" placeholder=""><br><br>
           <label>Enter Your gk</label>
-          <input type=text class="form-control my-3" id="gk" value="" placeholder=""><br><br>
+          <input type=text class="form-control my-3" id=gk value="" placeholder=""><br><br>
+
           <div>
           <?php echo $message; ?>
           </div>
           </form>
           <button id="go">Submit</button>
         <button id="loaddata"> Load Data</button>
+        <button id="search">search</button>
+        <button id="show">show</button>
+
 
 
           <p id="res">hello</p>  

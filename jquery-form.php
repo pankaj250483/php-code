@@ -1,15 +1,11 @@
 <?php
 
-echo ="run";
-return;
+echo "run".print_r($_POST);
   require "connect.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
   
- 
-  
-
     $id=$_POST["st id"];
     $name=$_POST["st_name"];
     $english=$_POST["st_english"];
@@ -32,5 +28,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       
       $conn->close();
 }
-
+ 
 ?>
