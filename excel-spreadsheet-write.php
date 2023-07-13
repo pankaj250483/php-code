@@ -7,11 +7,11 @@ require "vendor/PhpSpreadsheet/Helper/html.php";
 
 // require __DIR__ . '/../Header.php';
 
-$helper->log('Create new Spreadsheet object');
+
 $spreadsheet = new Spreadsheet();
 
 // Set document properties
-$helper->log('Set document properties');
+
 $spreadsheet->getProperties()
     ->setCreator('Maarten Balliauw')
     ->setLastModifiedBy('Maarten Balliauw')
@@ -22,7 +22,7 @@ $spreadsheet->getProperties()
     ->setCategory('Test result file');
 
 // Add some data
-$helper->log('Add some data');
+
 $spreadsheet->setActiveSheetIndex(0)
     ->setCellValue('A1', 'Hello')
     ->setCellValue('B2', 'world!')
@@ -59,7 +59,7 @@ $spreadsheet->getActiveSheet()
     ->setQuotePrefix(true);
 
 // Rename worksheet
-$helper->log('Rename worksheet');
+ 
 $spreadsheet->getActiveSheet()
     ->setTitle('Simple');
 
