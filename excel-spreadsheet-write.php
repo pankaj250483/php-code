@@ -1,6 +1,9 @@
 <?php
 
 require "vendor/PhpSpreadsheet/Spreadsheet.php";
+require "vendor/PhpSpreadsheet/Helper/html.php";
+
+
 
 // require __DIR__ . '/../Header.php';
 
