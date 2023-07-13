@@ -1,9 +1,13 @@
 <?php
 
-require "vendor/PHPExcel/Classes/PHPExcel.php";
-// require "vendor/PHPExcel/Classes/PHPExcel/Writer/Excel5.php"; 
+require 'vendor/autoload.php';
 
-$objPHPExcel = new PHPExcel();
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
+
+
+$objPHPExcel = new Spreadsheet();
 // write data to first sheet
 $objPHPExcel->setActiveSheetIndex(0)
             ->setCellValue('A1', 'id')
@@ -21,7 +25,7 @@ $objPHPExcel->setActiveSheetIndex(1)
 // set focus to first sheet of the workbook
 $objPHPExcel->setActiveSheetIndex(0);
 // write data to defined excel sheet
-$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+$objWriter = new Xlsx($objPHPExcel);
 $objWriter->save('studentInformation.xlsx');
 echo "<a href='studentInformation.xlsx'>Download Excel File</a>";
 
