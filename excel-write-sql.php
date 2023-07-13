@@ -1,8 +1,10 @@
 <?php
-require "connect.php";
-require "vendor/PHPExcel/Classes/PHPExcel.php";
+require 'vendor/autoload.php';
 
-$objPHPExcel = new PHPExcel();
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
+$objPHPExcel = new Spreadsheet();
 $sql = "SELECT * FROM computers where `english`>'80'";
 $result = $conn->query($sql);
 
@@ -28,7 +30,7 @@ while($row_data = $result->fetch_assoc()) {
     }
     $row++;
 }
-$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+$objWriter = new Xlsx($objPHPExcel);
 $objWriter->save('computers.xlsx');
 echo "<a href='computers.xlsx'>Download Excel File</a>";
 
