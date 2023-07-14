@@ -1,11 +1,11 @@
 <?php
 require 'vendor/autoload.php';
-
+require 'connect.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 $objPHPExcel = new Spreadsheet();
-$sql = "SELECT * FROM computers where `english`>'80'";
+$sql = "SELECT * FROM computers";
 $result = $conn->query($sql);
 
 
@@ -34,7 +34,7 @@ $objWriter = new Xlsx($objPHPExcel);
 $objWriter->save('computers.xlsx');
 echo "<a href='computers.xlsx'>Download Excel File</a>";
 
-echo "hello";
+
 
 
 ?>
