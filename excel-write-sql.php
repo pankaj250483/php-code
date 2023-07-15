@@ -6,9 +6,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 $objPHPExcel = new Spreadsheet();
 $sql = "SELECT * FROM computers";
-$result = $conn->query($sql);
-
-
+$result = $conn->query($sql);`
 
 $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, 1, "PANKAJ COMPUTERS, ANUPGARH")
  ->setCellValueByColumnAndRow(3, 2, "STUDENT MARKSHEET")
@@ -36,8 +34,5 @@ while($row_data = $result->fetch_assoc()) {
 $objWriter = new Xlsx($objPHPExcel);
 $objWriter->save('computers.xlsx');
 echo "<a href='computers.xlsx'>Download Excel File</a>";
-
-
-
 
 ?>
