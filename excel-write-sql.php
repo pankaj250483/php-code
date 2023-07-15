@@ -1,9 +1,11 @@
 <?php
-require "connect.php";
-require "vendor/PHPExcel/Classes/PHPExcel.php";
+require 'vendor/autoload.php';
+require 'connect.php';
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-$objPHPExcel = new PHPExcel();
-$sql = "SELECT * FROM computers where `english`>'80'";
+$objPHPExcel = new Spreadsheet();
+$sql = "SELECT * FROM computers";
 $result = $conn->query($sql);
 
 
@@ -31,11 +33,11 @@ while($row_data = $result->fetch_assoc()) {
      $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, $row, '=if((I' . $row . '/6)>36,"Pass","Fail")');
     $row++;
 }
-$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+$objWriter = new Xlsx($objPHPExcel);
 $objWriter->save('computers.xlsx');
 echo "<a href='computers.xlsx'>Download Excel File</a>";
 
-echo "hello";
+
 
 
 ?>

@@ -10,8 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $id =$_POST["emp_id"];
     $name =$_POST["emp_name"];
     $dob=$_POST["emp_dob"];
-    $salary =$_POST["emp_salary"];
-    $mobno= $_POST["emp_mob"];
+    $salary=$_POST["emp_salary"];
+    $mobno=$_POST["emp_mob"];
 
     $sql="INSERT INTO `employee` (`id`,`employee name`,`dob`,`salary`,`mobileno`) VALUES ('$id','$name','$dob','$salary','$mobno')";
 
