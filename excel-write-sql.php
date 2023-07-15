@@ -26,6 +26,9 @@ while($row_data = $result->fetch_assoc()) {
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, $row, $value);
         $col++;
     }
+     $sumrange = 'C' . $row . ':H' . $row;
+     $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, $row, '=SUM(' . $sumrange . ')');
+     $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, $row, '=if((I' . $row . '/6)>36,"Pass","Fail")');
     $row++;
 }
 $objWriter = new Xlsx($objPHPExcel);
