@@ -18,7 +18,7 @@ $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, 1, "PANKAJ COMPUTE
  ->setCellValueByColumnAndRow(5, 3, "science")
  ->setCellValueByColumnAndRow(6, 3, "punjabi")
  ->setCellValueByColumnAndRow(7, 3, "gk")
- ->setCellValueByColumnAndRow(7, 3, "total");
+ ->setCellValueByColumnAndRow(8, 3, "total");
 $row = 4; // 1-based index
 while($row_data = $result->fetch_assoc()) {
     $col = 0;
@@ -26,6 +26,9 @@ while($row_data = $result->fetch_assoc()) {
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, $row, $value);
         $col++;
     }
+     $sumrange = 'C' . $row . ':H' . $row;
+     $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, $row, '=SUM(' . $sumrange . ')');
+     $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, $row, '=if((I' . $row . '/6)>36,"Pass","Fail")');
     $row++;
 }
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
