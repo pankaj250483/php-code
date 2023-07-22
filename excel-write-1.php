@@ -5,8 +5,6 @@ require 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-
-
 $x = new Spreadsheet();
 // write data to first sheet
 $x->setActiveSheetIndex(0)
@@ -18,7 +16,6 @@ $x->setActiveSheetIndex(0)
             ->setCellValue('C2', 'Denny')
             ->setCellValue('D1', 'MobNo')
             ->setCellValue('D2', '9610816477');
-
 
 // add new sheet to the same excel 
 $x->createSheet();
@@ -53,5 +50,6 @@ $x->setActiveSheetIndex(0);
 $objWriter = new Xlsx($x);
 $objWriter->save('infolist.xlsx');
 echo "<a href='infolist.xlsx'>Download Excel File</a>";
+
 
 ?>
